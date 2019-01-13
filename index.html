@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body> 
+        <nav id="navbar">
+            <header><h1>css vARiAbLes</h1></header>
+            <a href="#What_is_a_CSS_Variable" class="nav-link">What is a CSS Variable</a>
+            <a href="#Basic_Usage" class="nav-link">Basic Usage</a>
+            <a href="#Fallback_Values" class="nav-link">Fallback Values</a>
+            <a href="#Javascript" class="nav-link">Javascript</a>
+            <a href="#Browser_Compatibility" class="nav-link">Browser Compatibility</a>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="What_is_a_CSS_Variable">
+                <header>
+                    <h2>What is a CSS Variable</h2>
+                </header>
+                    <ul>
+                        <li>CSS variables allow you to reuse values throughout a document.</li>
+                    </ul>
+                <h3>Variables vs. Custom Properties</h3>
+                <p>Pedantic fuddy-duddies will tell you that they're not variables; <em>they're CsS CuStOm PrOpErTiEs.</em> The fact is, they work in a slightly different manner, but for all intents and purposes, they're variables.</p>
+                <h3> Why use the bastards?</h3>
+                <p>Pfft. Why not? Change multiple elements by editing one line, avoid errors, cut down on code repetition. It's 2019, and we're living the dream.</p>
+                <code></code>
+            </section>
+            <section class="main-section" id="Basic_Usage">
+                <header>
+                    <h2>Basic Usage</h2>
+                </header>
+                    <ul>
+                        <li>Define variables in :root for good times.</li>
+                    </ul>
+                <h3>Setup</h3>
+                <p> Slap your variables in the :root element, like this:</p>
+                <code><pre>
+    :root {
+
+        --my-variable: #ffffff;
+
+    }
+                </pre></code>
+                <h3>Usage</h3>
+                <p>All you need to do is throw your variable in the ring as a value like this:</p>
+                <code><pre>
+    body {
+
+        color: var(--my-variable);
+
+    }
+                </pre></code>
+                <p>These bad boys can only be used for property values. Don't try to store entire CSS rules in them; it'll not work.</p>
+                <code><pre>
+    :root {
+
+        /* This works */
+        --color: #ffffff;
+
+        /* This doesn't */
+        --color: color: #ffffff;
+
+    } 
+                </pre></code>
+            </section>
+            <section class="main-section" id="Fallback_Values">
+                <header>
+                    <h2>Fallback Values</h2>
+                </header>
+                    <ul>
+                        <li>Some stupid browsers don't work with variables (っ °Д °;)っ</li>
+                    </ul>
+                <h3>Syntax</h3>
+                <p>Adding a fallback is as easy as:</p>
+                <code><pre>
+    body {
+    
+        color: var(--my-color, white);
+    
+    }
+                </pre></code>
+                <h3>Fallback Nesting Syntax</h3>
+                <p>Wanna fall back to another variable, and then an alternative, for some reason? Do it like this:</p>
+                <code><pre>
+    body {
+    
+        color: var(--color-1, var(--color-2, white))
+    
+    }
+                </pre></code>
+            </section>
+            <section class="main-section" id="Javascript">
+                <header>
+                    <h2>Javascript</h2>
+                </header>
+                    <ul>
+                        <li>Access CSS variables with JS</li>
+                    </ul>
+                <p>Get and set CSS variables like so:</p>
+                    <code><pre>
+    // get variable from inline style
+    element.style.getPropertyValue("--my-var");
+
+    // get variable from wherever
+    getComputedStyle(element).getPropertyValue("--my-var");
+
+    // set variable on inline style
+    element.style.setProperty("--my-var", jsVar + 4);                
+                    </pre></code>
+            </section>
+            <section class="main-section" id="Browser_Compatibility">
+                <header>
+                    <h2>Browser Compatibility</h2>
+                </header>
+                    <ul>
+                        <li>Most modern browsers work with CSS variables these days</li>
+                    </ul>
+                <h3>Desktop</h3>
+                <p>Desktop browsers with CSS variable support:<br>Chrome, Edge, Firefox, Opera, and Safari.</p>
+                <h3>Mobile</h3>
+                <p>Mobile browsers with CSS variable support:<br>Android webview, Chrome, Edge, Firefox, Opera, and Safari.</p>
+            </section>
+        </main>
+    </body>
+    
+    <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
+</html>
